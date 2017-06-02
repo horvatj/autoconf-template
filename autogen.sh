@@ -1,13 +1,14 @@
-#! /bin/sh
+#!/bin/bash
 
 LT="libtool"
 
 OS=$(uname)
 
-if [[ $OS == *"Darwin"* ]]; then
+if [ $OS == *"Darwin"* ]; then
 	LT="glibtoolize --copy"
-else
-	LT="libtool"
+
+elif [ $OS == *"Linux"* ]; then
+	LT="libtoolize --copy"
 fi
 
 echo "running aclocal..." && aclocal && \
